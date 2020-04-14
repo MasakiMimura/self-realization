@@ -65,3 +65,5 @@ gem 'simple_calendar', '~> 2.0'
 
 gem "chartkick"
 gem 'chartable'
+
+gem 'devise'

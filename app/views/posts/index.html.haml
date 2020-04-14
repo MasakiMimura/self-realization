@@ -1,0 +1,18 @@
+.wrapper
+  .content.clearfix
+    .left-content
+      .left-content__user
+        %h3.header__name
+          = current_user.name
+        %ul.header__lists
+          %li.list
+            = link_to do
+              = icon('fas', 'pen-square', class: 'icon')
+          %li.list
+            = link_to edit_user_path(current_user) do
+              = icon('fas', 'cog', class: 'icon')
+        -# = image_tag @user.image, class: 'left-content__user__image'
+        = link_to "https://twitter.com/", class: "left-content__user__twitter-btn" do
+          = icon('fab', 'twitter')
+        = link_to "https://twitter.com/", class: "left-content__user__mail-btn" do
+          = icon('far', 'envelope')
