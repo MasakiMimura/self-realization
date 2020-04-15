@@ -2,17 +2,54 @@
   .content.clearfix
     .left-content
       .left-content__user
-        %h3.header__name
+        %h3.left-content__user__name
           = current_user.name
-        %ul.header__lists
+        %ul.left-content__user__lists
+          %li.list
+            = link_to "https://twitter.com/", class: "left-content__user__twitter-btn" do
+              = icon('fab', 'twitter')
+          %li.list
+            = link_to current_user.email, class: "left-content__user__mail-btn" do
+              = icon('far', 'envelope')
           %li.list
             = link_to do
               = icon('fas', 'pen-square', class: 'icon')
           %li.list
             = link_to edit_user_path(current_user) do
               = icon('fas', 'cog', class: 'icon')
-        -# = image_tag @user.image, class: 'left-content__user__image'
-        = link_to "https://twitter.com/", class: "left-content__user__twitter-btn" do
-          = icon('fab', 'twitter')
-        = link_to "https://twitter.com/", class: "left-content__user__mail-btn" do
-          = icon('far', 'envelope')
+        = image_tag current_user.image, class: 'left-content__user__image'
+      .left-content__time
+        .left-content__time__chart
+          = pie_chart @routines, id: "left-content__time__chart--routines" ,height: "300px", width: "300px"
+        .left-content__time__calendar
+          = month_calendar events: @posts do |date, posts|
+            = date.day
+            %ul.left-content__time__calendar__post--list
+              - posts.each do |post|
+                %li.left-content__time__calendar__post--list__content
+                  = post.content
+    .right-content
+      .right-content__book
+        %section.right-content__book__section
+          %ul.right-content__book__section__book-list
+            = render @favorites
+      .right-content__todo
+        = form_for @todo, html: {class: 'right-content__todo__form'} do |f|
+          = f.text_field :content, class: 'right-content__todo__form__text'
+          = f.submit '追加', class: 'right-content__todo__form__submit'
+        %ul.right-content__todo__todos
+          = render @todos
+      .right-content__post
+        %ul.right-content__post__posts
+          = render @posts
+        = form_for @post, html: {class: 'right-content__post__form'} do |f|
+          .right-content__post__form__box
+            = f.date_select :start_time, class: 'right-content__post__form__box__date'
+            = f.text_field :content, class: 'right-content__post__form__box__test', placeholder: 'ここに入力'
+            = f.label :image, class: 'right-content__post__form__box__image-input' do
+              = icon('fas', 'image', class: 'right-content__post__form__box__image-input--iconon')
+              = f.file_field :image, class: 'right-content__post__form__box__image-input--hidden'
+            = f.submit '送信', class: 'right-content__post__form__submit'
+  .footer
+    .footer__small
+      Copyright(C) Self Realization ALL RIGHTS RESERVED.
