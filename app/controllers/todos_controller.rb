@@ -1,7 +1,10 @@
 class TodosController < ApplicationController
   def create
-    Todo.create(todo_params)
-    redirect_to root_path
+    @todo = Todo.create(todo_params)
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.json { render json: @todo}
+    end
   end
 
   private
