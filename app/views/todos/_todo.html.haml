@@ -1,2 +1,4 @@
 %li.right-content__todo__todos__list
   = todo.content 
+  = link_to todo_path(todo.id), method: "delete" do
+    削除

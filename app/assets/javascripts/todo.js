@@ -1,7 +1,10 @@
 $(function() {
     function buildHTML(todo) {
-    var html = $('<li class="right-content__todo__todos__list">').append(todo.content);
-    return html;
+    let html = `
+      <li class="right-content__todo__todos__list">${todo.content}</li>
+      <a href="todos/${todo.id}" data-method="delete">削除</a>
+    `;
+    $(".right-content__todo__todos").append(html);
   }
 
   $('.right-content__todo__form').on('submit', function(e) {
@@ -19,7 +22,6 @@ $(function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.right-content__todo__todos').append(html);
       $('form')[0].reset();
       $('.right-content__todo__form__submit').prop('disabled', false);
       var result = $('.right-content__todo__form__submit').prop('disabled');

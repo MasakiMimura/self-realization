@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get 'favorite', to: 'favorites#index'
   resources :posts, only: [:index, :create]
-  resources :todos, only: [:index, :create]
+  resources :todos, only: [:index, :create, :destroy]
 end
