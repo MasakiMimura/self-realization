@@ -1,8 +1,10 @@
 $(function() {
-    function buildHTML(todo) {
+  function buildHTML(todo) {
     let html = `
+    <div class="chat-group-user clearfix">
       <li class="right-content__todo__todos__list">${todo.content}</li>
-      <a href="todos/${todo.id}" data-method="delete">削除</a>
+      <div class="right-content__todo__todos__list__btn--remove js-remove-btn" data-todo-id="${todo.id}">削除</div>
+    </div>
     `;
     $(".right-content__todo__todos").append(html);
   }
@@ -31,5 +33,12 @@ $(function() {
       alert('error');
       $('.right-content__todo__form__submit').prop('disabled', false);
     });
+  });
+  $(document).on("click", ".right-content__todo__todos__list__btn--remove", function() {
+    const todoId = $(this).attr("data-todo-id");
+    console.log(todoId)
+    $(this)
+      .parent()
+      .remove();
   });
 });
