@@ -28,6 +28,7 @@ body {
 }
 
 .left-content {
+  color: white;
   background-color: #333333;
   height: 100%;
   width: 400px;
@@ -37,6 +38,23 @@ body {
     height: 200px;
     display: flex;
     align-items: center;
+    &__lists{
+      &__list {
+        &__twitter-btn {
+          color: white;
+          font-size: 1.3rem;
+        }
+        &__mail-btn {
+          color: white;
+          font-size: 1.3rem;
+        }
+        &__edit-btn {
+          color: white;
+          font-size: 1.3rem;
+        }
+
+      }
+    }
     &__image {
       height: 200px;
     }
@@ -47,10 +65,16 @@ body {
     color: black;
     font-size: 10px;
     &__chart {
-      height: 300px;
+      height: 320px;
+      &__routines {
+
+      }
+      &__form {
+
+      }
     }
     &__calendar {
-      height: calc(100% - 300px);
+      height: calc(100% - 320px);
       &__post--list {
         height: 50px;
         overflow: auto;
@@ -87,18 +111,29 @@ body {
 }
 
 .right-content__book__section {
-  height: 100vh;
+  
+  height: 20px;
   width: 100%;
-  margin: 0 auto;
   padding: 20px 0;
+  
+  &__menu {
+    text-decoration: none;
+    &__new--btn {
+      color: white;
+      font-size: 1.3rem;
+    }
+  }
   &__book-list {
     padding-left: 20px;
-    display: flex;
-    justify-content: space-between;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
     &__item {
       width: 102px;
       border: 1px solid white;
       position: relative;
+      /* 横スクロール用 */
+      display: inline-block;
       &__image {
         height: 100px;
         width: 100px;
@@ -134,29 +169,54 @@ body {
   &__todos {
     height: calc(100% - 40px);
     overflow: auto;
-    &__list {
-      color: white;
+    &__box {
+      &__list {
+        color: white;
+        &__btn--remove {
+          text-decoration: none;
+          color: red;
+        }
+      }
     }
   }
 }
 
 .right-content__post {
   &__posts {
-    height: calc(100% - 40px);
+    height: calc(100% - 80px);
     overflow: auto;
     &__list {
       color: white;
     }
   }
   &__form {
-    height: 40px;
+    color: white;
+    background-color: #1a1d21;
+    height: 80px;
     padding: 10px 10px;
     display: flex;
-    &__text {
-
-    }
     &__box {
+      position: relative;
+      width: 100%;
       &__date {
+      }
+      &__text {
+        height: 50px;
+        width: 100%;
+        padding: 0 40px 0 10px;
+        color: #434a54;
+        border-style: none;
+      }
+      &__image-input {
+        font-size: 1.3rem;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        cursor: pointer;
+        &--hidden {
+          visibility: hidden;  // 「ファイルを選択」の見た目を消す
+          display: none;       // 「ファイルを選択」の言葉自体（幅）を消す
+        }
       }
     }
     &__submit {

@@ -1,0 +1,11 @@
+.content__title
+  新規アイテムの登録
+= form_for @favorite, html: {class: 'favorite__form'} do |f|
+  .right-content__post__form__box
+    = f.text_field :name, class: 'favorite__form__box__test', placeholder: 'ここに名前を入力'
+    = f.text_field :rank, class: 'favorite__form__box__test', placeholder: 'ここに数字を入力'
+    = f.label :image, class: 'favorite__form__box__image-input' do
+      = icon('fas', 'image', class: 'favorite__form__box__image-input--iconon')
+      = f.file_field :image, class: 'favorite__form__box__image-input--hidden'
+    = f.text_field :url, class: 'favorite__form__box', placeholder: 'ここにリンクを入力'
+    = f.submit '登録', class: 'favorite__form__box__submit'

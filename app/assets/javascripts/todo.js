@@ -1,9 +1,11 @@
 $(function() {
   function buildHTML(todo) {
     let html = `
-    <div class="chat-group-user clearfix">
-      <li class="right-content__todo__todos__list">${todo.content}</li>
-      <div class="right-content__todo__todos__list__btn--remove js-remove-btn" data-todo-id="${todo.id}">削除</div>
+    <div class="right-content__todo__todos__box">
+      <li class="right-content__todo__todos__box__list">
+        ${todo.content}
+        <div class="right-content__todo__todos__box__list__btn--remove js-remove-btn" data-todo-id="${todo.id}">完了</div>
+      </li>
     </div>
     `;
     $(".right-content__todo__todos").append(html);
@@ -34,7 +36,7 @@ $(function() {
       $('.right-content__todo__form__submit').prop('disabled', false);
     });
   });
-  $(document).on("click", ".right-content__todo__todos__list__btn--remove", function() {
+  $(document).on("click", ".right-content__todo__todos__box__list__btn--remove", function() {
     const todoId = $(this).attr("data-todo-id");
     console.log(todoId)
     $(this)

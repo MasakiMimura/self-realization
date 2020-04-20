@@ -1,4 +1,5 @@
-%li.right-content__todo__todos__list
-  = todo.content 
-  = link_to todo_path(todo.id),  class: ".right-content__todo__todos__list__btn--remove.js-remove-btn", method: "delete" do
-    削除
+.right-content__todo__todos__box
+  %li.right-content__todo__todos__box__list
+    = todo.content
+    = link_to todo_path(todo.id), class: "right-content__todo__todos__box__list__btn--remove js-remove-btn", method: "delete" do
+      完了

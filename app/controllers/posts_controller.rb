@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @todo = Todo.new
     @todos = Todo.where(user: current_user.id).order('created_at ASC').includes(:user)
 
+    @routine = Routine.new
     @routines = Routine.where(user: current_user.id).group(:content).count
   end
 
