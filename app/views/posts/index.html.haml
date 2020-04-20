@@ -17,10 +17,10 @@
         = image_tag current_user.image, class: 'left-content__user__image'
       .left-content__time
         .left-content__time__chart
-          = pie_chart @routines, id: "left-content__time__chart--routines" ,height: "300px", width: "300px"
-          = form_for @routine, html: {class: 'left-content__time__chart--__form'} do |f|
-            = f.text_field :content, class: 'left-content__time__chart--__text'
-            = f.submit '追加', class: 'left-content__time__chart--__form__submit'
+          = pie_chart @routines, id: "left-content__time__chart__routines" ,height: "280px", width: "280px"
+          = form_for @routine, html: {class: 'left-content__time__chart__form'} do |f|
+            = f.text_field :content, class: 'left-content__time__chart__form__text'
+            = f.submit '追加', class: 'left-content__time__chart__form__submit'
         .left-content__time__calendar
           = month_calendar events: @posts do |date, posts|
             = date.day
@@ -32,6 +32,7 @@
       .right-content__book
         %section.right-content__book__section
           .right-content__book__section__menu
+            お気に入り
             = link_to new_favorite_path, class: "right-content__book__section__menu__new--btn" do
               = icon('fas', 'pen-square', class: 'icon')
           %ul.right-content__book__section__book-list

@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'sqlite3' 
+
+  gem 'rails-erd'
 end
 
 group :development do

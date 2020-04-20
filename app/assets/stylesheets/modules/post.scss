@@ -62,19 +62,28 @@ body {
   &__time {
     height: calc(100% - 200px);
     overflow: auto;
-    color: black;
+    color: white;
     font-size: 10px;
     &__chart {
-      height: 320px;
+      height: 310px;
       &__routines {
 
       }
       &__form {
+        font-size: 20px;
+        height: 40px;
+        padding: 10px 10px;
+        display: flex;
+        &__text {
 
+        }
+        &__submit {
+          cursor: pointer;
+        }
       }
     }
     &__calendar {
-      height: calc(100% - 320px);
+      height: calc(100% - 300px);
       &__post--list {
         height: 50px;
         overflow: auto;
@@ -84,11 +93,6 @@ body {
       }
     }
   }
-}
-
-#left-content__time__chart--routines {
-  height: 200px;
-  width: 200px;
 }
 
 .right-content {
@@ -102,22 +106,19 @@ body {
   }
   &__todo {
     background-color: #1a1d21;
-    height: calc(100% - 325px);
+    height: calc(100% - 375px);
   }
   &__post {
     background-color: #595959;
-    height: 150px;
+    height: 200px;
   }
 }
 
 .right-content__book__section {
-  
-  height: 20px;
+  height: 30px;
   width: 100%;
-  padding: 20px 0;
-  
   &__menu {
-    text-decoration: none;
+    color: white;
     &__new--btn {
       color: white;
       font-size: 1.3rem;
@@ -163,6 +164,7 @@ body {
 
     }
     &__submit {
+      height: 20px;
       cursor: pointer;
     }
   }

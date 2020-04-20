@@ -1,0 +1,17 @@
+.simple-calendar {
+  width: 400px;
+  height: 300px;
+}
+
+.calendar-heading {
+  font-size: 20px;
+  text-align: center;
+  &--link{
+    text-decoration: none;
+    color: red;
+  }
+}
+
+.day {
+  height: 100px;
+}
