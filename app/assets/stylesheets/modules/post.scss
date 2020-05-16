@@ -1,236 +1,245 @@
-* {
-  box-sizing: border-box;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-html {
-  // height: 100%;
-  // width: 100%;
-}
-
-body {
-  // height: 100%;
-  // width: 100%;
-}
-
 .wrapper {
   height: 100vh;
-}
-
-.content {
-  background-color: gray;
-  height: calc(100% - 20px);
-}
-
-.left-content {
-  color: white;
-  background-color: #333333;
-  height: 100%;
-  width: 400px;
-  float: left;
-  &__user {
-    background-color: #595959;
-    height: 200px;
+  .content {
+    height: calc(100% - 20px);
+    // background-color: gray;
     display: flex;
-    align-items: center;
-    &__lists{
-      &__list {
-        &__twitter-btn {
-          color: white;
-          font-size: 1.3rem;
+    .left-content {
+      // color: white;
+      // background-color: #333333;
+      width: 400px;
+      &__user {
+        display: flex;
+        background-color: gray;
+        height: 120px;
+        &__lists{
+          &__list {
+            // font-size: 1.3rem;
+            &__twitter-btn {
+              color: blue;
+            }
+            &__mail-btn {
+              color: red;
+            }
+            &__edit-btn {
+              color: black;
+            }
+          }
         }
-        &__mail-btn {
-          color: white;
-          font-size: 1.3rem;
+        &__image {
+          // border-radius: 50%;
+          height: 100%;
         }
-        &__edit-btn {
-          color: white;
-          font-size: 1.3rem;
+        &__comment {
+          overflow: hidden;
         }
+      }
+      &__time {
+        height: calc(100% - 120px);
+        overflow: auto;
+        // color: white;
+        font-size: 10px;
+        &__chart {
+          // height: 310px;
+          &__routines {
 
+          }
+          &__form {
+            font-size: 20px;
+            // height: 40px;
+            // padding: 10px 10px;
+            // display: flex;
+            &__text {
+
+            }
+            &__submit {
+              cursor: pointer;
+            }
+          }
+        }
+        &__calendar {
+          // height: calc(100% - 300px);
+          &__post--list {
+            // height: 50px;
+            // overflow: auto;
+            &__content {
+              // color: skyblue;
+            }
+          }
+        }
       }
     }
-    &__image {
-      height: 200px;
-    }
-  }
-  &__time {
-    height: calc(100% - 200px);
-    overflow: auto;
-    color: white;
-    font-size: 10px;
-    &__chart {
-      height: 310px;
-      &__routines {
-
+    .right-content {
+      // background-color: #1a1d21;
+      // height: 100%;
+      width: calc(100% - 400px);
+      &__book {
+        // background-color: #3f3f3f;
+        height: 230px;
+        .right-content__book__section {
+          // height: 30px;
+          // width: 100%;
+          &__menu {
+            // color: white;
+            &__new--btn {
+              // color: white;
+              // font-size: 1.3rem;
+            }
+          }
+          &__book-list {
+            // padding-left: 20px;
+            display: flex;
+            overflow-x: auto;
+            // white-space: nowrap;
+            // -webkit-overflow-scrolling: touch;
+            &__item {
+              width: 102px;
+              border: 1px solid black;
+              // position: relative;
+              /* 横スクロール用 */
+              display: inline-block;
+              &__image {
+                height: 150px;
+                width: 100px;
+                object-fit: cover;
+              }
+              &__title {
+                overflow: hidden;
+                height: 30px;
+                // position: absolute;
+                // bottom: 30px;
+                // left: 30px;
+                font-size: 10px;
+              }
+            }
+            &__text {
+              font-size: 10px;
+              // color: white;
+              // padding: 5px 5px;
+            }
+          }
+        }
       }
       &__form {
-        font-size: 20px;
-        height: 40px;
-        padding: 10px 10px;
-        display: flex;
-        &__text {
-
-        }
-        &__submit {
-          cursor: pointer;
-        }
-      }
-    }
-    &__calendar {
-      height: calc(100% - 300px);
-      &__post--list {
-        height: 50px;
+        height: calc(100% - 230px);
         overflow: auto;
-        &__content {
-          color: skyblue;
+        &__todo {
+          height: calc(100% - 200px);
+          background-color: gray;
+          &__title {
+            height: 20px;
+          }
+          &__form {
+            height: 30px;
+            // padding: 10px 10px;
+            display: flex;
+            &__text {
+              width: 100%;
+              margin: 0 5px;
+            }
+            &__submit {
+              background-color: #38aef0;
+              border: 1px solid #38aef0;
+              color: #ffffff;
+              width: 50px;
+              height: 30px;
+              padding: 0 10px;
+              margin: 0 5px;
+              cursor: pointer;
+            }
+          }
+          &__todos {
+            height: calc(100% - 50px);
+            overflow: auto;
+            &__box {
+              &__list {
+                // color: white;
+                &__btn--remove {
+                  text-decoration: none;
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+        &__post {
+          height: 200px;
+          &__title
+          {
+            height: 20px;
+          }
+          // bacground-color: #595959;
+          &__posts {
+            height: calc(100% - 55px);
+            overflow: auto;
+            &__list {
+              // color: white;
+            }
+          }
+          &__form {
+            height: 35px;
+            // color: white;
+            // background-color: #1a1d21;
+            // height: 80px;
+            // padding: 10px 10px;
+            display: flex;
+            &__box {
+                width: 100%;
+                #post_start_time_1i {
+                  height: 30px;
+                  width: 69px;
+                }
+                #post_start_time_2i {
+                  height: 30px;
+                  width: 114px;
+                }
+                #post_start_time_3i {
+                  height: 30px;
+                  width: 48px;
+                }
+              // 
+              // width: 100%;
+              position: relative;
+              &__text {
+                // height: 50px;
+                width: calc(100% - 250px);
+                
+                // padding: 0 40px 0 10px;
+                // color: #434a54;
+                // border-style: none;
+              }
+              &__image-input {
+                font-size: 1.3rem;
+                position: absolute;
+                top: 0px;
+                right: 10px;
+                cursor: pointer;
+                &--hidden {
+                  visibility: hidden;  // 「ファイルを選択」の見た目を消す
+                  display: none;       // 「ファイルを選択」の言葉自体（幅）を消す
+                }
+              }
+            }
+            &__submit {
+              background-color: #38aef0;
+              border: 1px solid #38aef0;
+              color: #ffffff;
+              width: 50px;
+              height: 30px;
+              padding: 0 10px;
+              margin: 0 5px;
+              cursor: pointer;
+            }
+          }
         }
       }
     }
   }
-}
-
-.right-content {
-  background-color: #1a1d21;
-  height: 100%;
-  width: calc(100% - 400px);
-  float: left;
-  &__book {
-    background-color: #3f3f3f;
-    height: 175px;
-  }
-  &__todo {
-    background-color: #1a1d21;
-    height: calc(100% - 375px);
-  }
-  &__post {
-    background-color: #595959;
-    height: 200px;
-  }
-}
-
-.right-content__book__section {
-  height: 30px;
-  width: 100%;
-  &__menu {
-    color: white;
-    &__new--btn {
-      color: white;
-      font-size: 1.3rem;
-    }
-  }
-  &__book-list {
-    padding-left: 20px;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    &__item {
-      width: 102px;
-      border: 1px solid white;
-      position: relative;
-      /* 横スクロール用 */
-      display: inline-block;
-      &__image {
-        height: 100px;
-        width: 100px;
-        object-fit: cover;
-      }
-      &__title {
-        position: absolute;
-        bottom: 30px;
-        left: 30px;
-        font-size: 10px;
-      }
-    }
-    &__text {
+  .footer {
+    // background-color: white;
+    height: 20px;
+    &__small {
       font-size: 10px;
-      color: white;
-      padding: 5px 5px;
     }
-  }
-}
-
-.right-content__todo {
-  &__form {
-    height: 40px;
-    padding: 10px 10px;
-    display: flex;
-    &__text {
-
-    }
-    &__submit {
-      height: 20px;
-      cursor: pointer;
-    }
-  }
-  &__todos {
-    height: calc(100% - 40px);
-    overflow: auto;
-    &__box {
-      &__list {
-        color: white;
-        &__btn--remove {
-          text-decoration: none;
-          color: red;
-        }
-      }
-    }
-  }
-}
-
-.right-content__post {
-  &__posts {
-    height: calc(100% - 80px);
-    overflow: auto;
-    &__list {
-      color: white;
-    }
-  }
-  &__form {
-    color: white;
-    background-color: #1a1d21;
-    height: 80px;
-    padding: 10px 10px;
-    display: flex;
-    &__box {
-      position: relative;
-      width: 100%;
-      &__date {
-      }
-      &__text {
-        height: 50px;
-        width: 100%;
-        padding: 0 40px 0 10px;
-        color: #434a54;
-        border-style: none;
-      }
-      &__image-input {
-        font-size: 1.3rem;
-        position: absolute;
-        top: 0px;
-        right: 10px;
-        cursor: pointer;
-        &--hidden {
-          visibility: hidden;  // 「ファイルを選択」の見た目を消す
-          display: none;       // 「ファイルを選択」の言葉自体（幅）を消す
-        }
-      }
-    }
-    &__submit {
-
-    }
-  }
-}
-
-.footer {
-  background-color: white;
-  height: 20px;
-  &__small {
-    font-size: 10px;
   }
 }

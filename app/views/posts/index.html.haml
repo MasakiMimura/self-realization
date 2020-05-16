@@ -1,23 +1,27 @@
 .wrapper
-  .content.clearfix
+  .content
     .left-content
       .left-content__user
-        %h3.left-content__user__name
-          = current_user.name
         %ul.left-content__user__lists
+          %li.left-content__user__lists__list
+            = current_user.name
           %li.left-content__user__lists__list
             = link_to "https://twitter.com/", class: "left-content__user__lists__list__twitter-btn" do
               = icon('fab', 'twitter')
+              = "twitter"
           %li.left-content__user__lists__list
             = link_to "mailto:" + current_user.email, class: "left-content__user__lists__list__mail-btn" do
               = icon('far', 'envelope')
+              = "mail"
           %li.left-content__user__lists__list
             = link_to edit_user_path(current_user), class: "left-content__user__lists__list__edit-btn" do
               = icon('fas', 'cog', class: 'icon')
+              = "設定"
         = image_tag current_user.image, class: 'left-content__user__image'
+        = "はじめまして"
       .left-content__time
         .left-content__time__chart
-          = pie_chart @routines, id: "left-content__time__chart__routines" ,height: "280px", width: "280px"
+          = pie_chart @routines, id: "left-content__time__chart__routines" ,height: "280px", width: "400px"
           = form_for @routine, html: {class: 'left-content__time__chart__form'} do |f|
             = f.text_field :content, class: 'left-content__time__chart__form__text'
             = f.submit '追加', class: 'left-content__time__chart__form__submit'
@@ -32,28 +36,33 @@
       .right-content__book
         %section.right-content__book__section
           .right-content__book__section__menu
-            お気に入り
+            ＜お気に入り＞
             = link_to new_favorite_path, class: "right-content__book__section__menu__new--btn" do
               = icon('fas', 'pen-square', class: 'icon')
           %ul.right-content__book__section__book-list
             = render @favorites
-      .right-content__todo
-        = form_for @todo, html: {class: 'right-content__todo__form'} do |f|
-          = f.text_field :content, class: 'right-content__todo__form__text'
-          = f.submit '追加', class: 'right-content__todo__form__submit'
-        %ul.right-content__todo__todos
-          = render @todos
-      .right-content__post
-        %ul.right-content__post__posts
-          = render @posts
-        = form_for @post, html: {class: 'right-content__post__form'} do |f|
-          .right-content__post__form__box
-            = f.date_select :start_time, class: 'right-content__post__form__box__date'
-            = f.text_field :content, class: 'right-content__post__form__box__test', placeholder: 'ここに入力'
-            = f.label :image, class: 'right-content__post__form__box__image-input' do
-              = icon('fas', 'image', class: 'right-content__post__form__box__image-input--iconon')
-              = f.file_field :image, class: 'right-content__post__form__box__image-input--hidden'
-          = f.submit '送信', class: 'right-content__post__form__box__submit'
+      .right-content__form
+        .right-content__form__todo
+          .right-content__form__todo__title
+            ＜Todoリスト＞
+          = form_for @todo, html: {class: 'right-content__form__todo__form'} do |f|
+            = f.text_field :content, class: 'right-content__form__todo__form__text'
+            = f.submit '追加', class: 'right-content__form__todo__form__submit'
+          %ul.right-content__form__todo__todos
+            = render @todos
+        .right-content__form__post
+          .right-content__form__post__title
+            ＜カレンダー投稿＞
+          %ul.right-content__form__post__posts
+            = render @posts
+          = form_for @post, html: {class: 'right-content__form__post__form'} do |f|
+            .right-content__form__post__form__box
+              = f.date_select :start_time, class: 'right-content__form__post__form__box__date'
+              = f.text_field :content, class: 'right-content__form__post__form__box__text', placeholder: 'ここに入力'
+              = f.label :image, class: 'right-content__form__post__form__box__image-input' do
+                = icon('fas', 'image', class: 'right-content__form__post__form__box__image-input--iconon')
+                = f.file_field :image, class: 'right-content__form__post__form__box__image-input--hidden'
+            = f.submit '送信', class: 'right-content__form__post__form__submit'
   .footer
     .footer__small
       Copyright(C) Self Realization ALL RIGHTS RESERVED.
