@@ -24,6 +24,10 @@
           = pie_chart @routines, id: "left-content__time__chart__routines" ,height: "280px", width: "400px"
           = form_for @routine, html: {class: 'left-content__time__chart__form'} do |f|
             = f.text_field :content, class: 'left-content__time__chart__form__text'
+            - cnt = [["割合",""]]
+            - for num in 1..24
+              - cnt << num
+            = f.select :turn, cnt, class: 'left-content__time__chart__form__cnt'
             = f.submit '追加', class: 'left-content__time__chart__form__submit'
         .left-content__time__calendar
           = month_calendar events: @posts do |date, posts|

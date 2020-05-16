@@ -40,19 +40,30 @@
         // color: white;
         font-size: 10px;
         &__chart {
-          // height: 310px;
           &__routines {
 
           }
           &__form {
-            font-size: 20px;
-            // height: 40px;
+            font-size: 15px;
+            height: 30px;
+            display: flex;
             // padding: 10px 10px;
             // display: flex;
             &__text {
-
+              width: 100%;
+              margin: 0 5px;
+            }
+            #routine_turn {
+              height: 30px;
             }
             &__submit {
+              background-color: #38aef0;
+              border: 1px solid #38aef0;
+              color: #ffffff;
+              width: 50px;
+              height: 30px;
+              padding: 0 10px;
+              margin: 0 5px;
               cursor: pointer;
             }
           }
@@ -82,8 +93,8 @@
           &__menu {
             // color: white;
             &__new--btn {
-              // color: white;
-              // font-size: 1.3rem;
+              color: black;
+              font-size: 1.3rem;
             }
           }
           &__book-list {
@@ -95,20 +106,24 @@
             &__item {
               width: 102px;
               border: 1px solid black;
-              // position: relative;
-              /* 横スクロール用 */
+              position: relative;
               display: inline-block;
               &__image {
                 height: 150px;
                 width: 100px;
                 object-fit: cover;
               }
+              &__rank {
+                font-size: 10px;
+                font-weight: bold;
+                color: red;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+              }
               &__title {
                 overflow: hidden;
                 height: 30px;
-                // position: absolute;
-                // bottom: 30px;
-                // left: 30px;
                 font-size: 10px;
               }
             }
@@ -131,7 +146,6 @@
           }
           &__form {
             height: 30px;
-            // padding: 10px 10px;
             display: flex;
             &__text {
               width: 100%;
@@ -152,11 +166,23 @@
             height: calc(100% - 50px);
             overflow: auto;
             &__box {
+              margin-top: 10px;
+              margin-left: 10px;
               &__list {
-                // color: white;
+                display: flex;
+                &__title {
+                  width: 100%;
+                }
                 &__btn--remove {
                   text-decoration: none;
-                  color: red;
+                  background-color: red;
+                  border: 1px solid red;
+                  color: #ffffff;
+                  width: 50px;
+                  height: 30px;
+                  padding: 0 10px;
+                  margin: 0 5px;
+                  cursor: pointer;
                 }
               }
             }
@@ -173,7 +199,12 @@
             height: calc(100% - 55px);
             overflow: auto;
             &__list {
-              // color: white;
+              margin: 10px;
+              &__date {
+                font-size: 10px;
+                text-align: right;
+                color: gray;
+              }
             }
           }
           &__form {
@@ -236,9 +267,9 @@
     }
   }
   .footer {
-    // background-color: white;
     height: 20px;
     &__small {
+      text-align: center;
       font-size: 10px;
     }
   }

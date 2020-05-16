@@ -1,6 +1,6 @@
 %li.right-content__book__section__book-list__item
   = image_tag favorite.image.url, class: 'right-content__book__section__book-list__item__image' if favorite.image.present?
-  %p.right-content__book__section__book-list__text
+  %p.right-content__book__section__book-list__item__rank
     = favorite.rank
     = "位"
   %h3.right-content__book__section__book-list__item__title
