@@ -3,7 +3,9 @@ $(function() {
     let html = `
     <div class="right-content__form__todo__todos__box">
       <li class="right-content__form__todo__todos__box__list">
-        ${todo.content}
+        <div class="right-content__form__todo__todos__box__list__title">
+          ${todo.content}
+        </div>
         <span class="right-content__form__todo__todos__box__list__btn--remove js-remove-btn" data-todo-id="${todo.id}">完了</span>
       </li>
     </div>
