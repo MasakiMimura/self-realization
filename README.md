@@ -1,40 +1,35 @@
 # アプリの目的
-Rubyの問題文をクイズ形式で出し合い理解を深めるアプリケーション。
-単語帳のように気軽に使う事ができ、覚えて置きたいメソッドや型を隙間時間に学習するができます。
+自己のやりたいことを実現するためのアプリケーションです。
 
 # 作成の背景
-
-学習効率をあげるには<アウトプット>が重要と理解しています。
-自身で学んだ内容を考えて投稿する事で知識が定着し、学習効率をアップさせるだけでなく、他ユーザーが投稿した問題を回答する事で、知識の向上も期待できます。
-
+自己肯定感を高めるために日々の努力の結果、やるべきことを登録することが必要です。
+また、人間は意志が弱いため、価値観が同じ仲間との出会いを生むために、自分の好きなものや、習慣、何を占めているかを登録します。
 
 # アプリケーション情報
-- 問題を投稿し共有できるサイトを作成しました
+- 自分のやりたいことを実現するまでを記録できるサイトを作成しました
 - テスト用アカウント等
 - ログイン情報
-- ログイン用メールアドレス: aaa@aaa
-- パスワード:  123456
+- ログイン用メールアドレス: mimura@masaki.com
+- パスワード: mimura36
 
 # 開発環境
 - Ruby/Ruby on Rails/MySQL/Github/AWS/visual studio code
 
-
-
 # アプリの機能
-- ユーザーの新規登録、ログイン,編集、削除機能
-- 問題を(選択式)または(記述式)を選び投稿、削除、編集機能
-- 投稿された問題の種別に合わせて回答機能
+- ユーザーの新規登録、ログイン,編集機能 
+- 円グラフの作成
+- 自分の好きなものを登録するお気に入り機能
+- 投稿された内容をカレンダーに投稿する機能
 - 投稿された問題に対してのいいね機能
 - 投稿された問題に対してコメント機能
-- 検索機能
-- 投稿された問題の正答率、回答数表示機能
-- 不適切な問題の報告機能（違反者通告機能）
-- レスポンシブ対応(headerや一覧表示など)
+
+# アプリ未完成
+- 画面遷移をしないように機能を追加・バージョンアップ中
+- 画像ファイルのプレビュー機能
+- レスポンシブ対応(左右のコンテンツの表示など)
 
 # DBの設計
-
 ## usersテーブル deviseを使用
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false,unique: true|
@@ -48,13 +43,17 @@ Rubyの問題文をクイズ形式で出し合い理解を深めるアプリケ�
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :introductions
-- has_many :books
+- has_many :routines
 - has_many :times
+- has_many :favorites
 - has_many :posts
 
-## introductionsテーブル
-|text|text|null: false|
+
+## routinesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|content|text||
+|turn|integer||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -72,14 +71,17 @@ Rubyの問題文をクイズ形式で出し合い理解を深めるアプリケ�
 - belongs_to :user
 
 
-## booksテーブル
+## favoritessテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|rank|integer|
+|rank|integer||
+|image|text||
+|url|string||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+
 
 ## todosテーブル
 |Column|Type|Options|
@@ -92,7 +94,9 @@ Rubyの問題文をクイズ形式で出し合い理解を深めるアプリケ�
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|content|text|null: false|
+|image|text||
+|start_time|datetime||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
