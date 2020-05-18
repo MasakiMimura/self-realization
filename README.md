@@ -7,6 +7,7 @@
 
 # アプリケーション情報
 - 自分のやりたいことを実現するまでを記録できるサイトを作成しました
+- url: https://self-realization.herokuapp.com/
 - テスト用アカウント等
 - ログイン情報
 - ログイン用メールアドレス: mimura@masaki.com
