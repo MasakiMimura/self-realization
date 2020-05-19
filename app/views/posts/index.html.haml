@@ -23,8 +23,8 @@
         .left-content__time__chart
           = pie_chart @routines, id: "left-content__time__chart__routines" ,height: "280px", width: "400px"
           = form_for @routine, html: {class: 'left-content__time__chart__form'} do |f|
-            = f.text_field :content, class: 'left-content__time__chart__form__text'
-            - cnt = [["割合",""]]
+            = f.text_field :content, class: 'left-content__time__chart__form__text', placeholder: '勉強や趣味などの内容を入力'
+            - cnt = [["時間",""]]
             - for num in 1..24
               - cnt << num
             = f.select :turn, cnt, class: 'left-content__time__chart__form__cnt'
@@ -38,11 +38,11 @@
                   = post.content
     .right-content
       .right-content__todo
+        = form_for @todo, html: {class: 'right-content__todo__form'} do |f|
+          = f.text_field :content, class: 'right-content__todo__form__text', placeholder: 'やらなければならないことを入力'
+          = f.submit '追加', class: 'right-content__todo__form__submit'
         .right-content__todo__title
           ＜Todoリスト＞
-        = form_for @todo, html: {class: 'right-content__todo__form'} do |f|
-          = f.text_field :content, class: 'right-content__todo__form__text'
-          = f.submit '追加', class: 'right-content__todo__form__submit'
         %ul.right-content__todo__todos
           = render @todos
       .right-content__book
@@ -59,11 +59,11 @@
               - for num in 1..36
                 - cnt << num
               = f.select :rank, cnt, class: 'favorite__form__box__cnt'
-              = f.text_field :name, class: 'favorite__form__box__text__name', placeholder: 'ここに名前を入力'
+              = f.text_field :name, class: 'favorite__form__box__text__name', placeholder: 'お気に入りの書籍名を入力'
               = f.label :image, class: 'favorite__form__box__image-input' do
                 = icon('fas', 'image', class: 'favorite__form__box__image-input--iconon')
                 = f.file_field :image, class: 'favorite__form__box__image-input--hidden'
-            = f.text_field :url, class: 'favorite__form__box__text', placeholder: 'ここにリンクを入力'
+            = f.text_field :url, class: 'favorite__form__box__text', placeholder: 'ここに購入リンクを入力'
             = f.submit '登録', class: 'favorite__form__submit'
       .right-content__post
         .right-content__post__title
@@ -73,7 +73,7 @@
         = form_for @post, html: {class: 'right-content__post__form'} do |f|
           .right-content__post__form__box
             = f.date_select :start_time, class: 'right-content__post__form__box__date'
-            = f.text_field :content, class: 'right-content__post__form__box__text', placeholder: 'ここに入力'
+            = f.text_field :content, class: 'right-content__post__form__box__text', placeholder: '今日の積み上げを入力'
             = f.label :image, class: 'right-content__post__form__box__image-input' do
               = icon('fas', 'image', class: 'right-content__post__form__box__image-input--iconon')
               = f.file_field :image, class: 'right-content__post__form__box__image-input--hidden'

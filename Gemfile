@@ -72,6 +72,10 @@ gem 'chartable'
 
 gem 'devise'
 
+gem 'fog-aws'
+
+gem 'dotenv-rails'
+
 group :production do
   # use PostgreSQL on heroku
   gem 'pg'
