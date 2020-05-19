@@ -6,6 +6,11 @@ class RoutinesController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy_all
+    Routine.destroy_all(['user_id = ?', current_user.id])
+    redirect_to root_path
+  end
+
   private
   def routine_params
     params.require(:routine).permit(:content, :turn).merge(user_id: current_user.id)

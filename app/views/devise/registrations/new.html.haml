@@ -19,6 +19,11 @@
             = f.email_field :email
         .field
           .field-label
+            = f.label :twitter
+          .field-input
+            = f.text_field :twitter
+        .field
+          .field-label
             = f.label :password
             %i (英数字8文字以上)
           .field-input
@@ -28,6 +33,11 @@
             = f.label :password_confirmation
           .field-input
             = f.password_field :password_confirmation, autocomplete: "off"
+        .field
+          .field-label
+            = f.label :content
+          .field-input
+            = f.text_field :content
         .field
           .field-label
             = f.label :image

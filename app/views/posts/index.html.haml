@@ -6,7 +6,7 @@
           %li.left-content__user__lists__list
             = current_user.name
           %li.left-content__user__lists__list
-            = link_to "https://twitter.com/", class: "left-content__user__lists__list__twitter-btn" do
+            = link_to current_user.twitter, class: "left-content__user__lists__list__twitter-btn" do
               = icon('fab', 'twitter')
               = "twitter"
           %li.left-content__user__lists__list
@@ -18,9 +18,12 @@
               = icon('fas', 'cog', class: 'icon')
               = "設定"
         = image_tag current_user.image, class: 'left-content__user__image'
-        = "はじめまして"
+        .left-content__user__content
+          = current_user.content
       .left-content__time
         .left-content__time__chart
+          - if Routine.exists?
+            = link_to "全て削除", destroy_all_routines_path, method: :delete, class: "left-content__time__chart__delete--btn"
           = pie_chart @routines, id: "left-content__time__chart__routines" ,height: "280px", width: "400px"
           = form_for @routine, html: {class: 'left-content__time__chart__form'} do |f|
             = f.text_field :content, class: 'left-content__time__chart__form__text', placeholder: '勉強や趣味などの内容を入力'
@@ -39,16 +42,16 @@
     .right-content
       .right-content__todo
         = form_for @todo, html: {class: 'right-content__todo__form'} do |f|
-          = f.text_field :content, class: 'right-content__todo__form__text', placeholder: 'やらなければならないことを入力'
+          = f.text_field :content, class: 'right-content__todo__form__text', placeholder: 'やらなければならないことToDoを入力'
           = f.submit '追加', class: 'right-content__todo__form__submit'
         .right-content__todo__title
-          ＜Todoリスト＞
+          ＜ToDoリスト＞
         %ul.right-content__todo__todos
           = render @todos
       .right-content__book
         %section.right-content__book__section
           .right-content__book__section__menu
-            ＜お気に入り＞
+            ＜お気に入りの書籍＞
             -# = link_to new_favorite_path, class: "right-content__book__section__menu__new--btn" do
             -#   = icon('fas', 'pen-square', class: 'icon')
           %ul.right-content__book__section__book-list
@@ -67,7 +70,7 @@
             = f.submit '登録', class: 'favorite__form__submit'
       .right-content__post
         .right-content__post__title
-          ＜カレンダー投稿＞
+          ＜毎日の積み上げ投稿＞
         %ul.right-content__post__posts
           = render @posts
         = form_for @post, html: {class: 'right-content__post__form'} do |f|
