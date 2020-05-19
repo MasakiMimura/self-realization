@@ -1,6 +1,6 @@
-.right-content__form__todo__todos__box
-  %li.right-content__form__todo__todos__box__list
-    .right-content__form__todo__todos__box__list__title
+.right-content__todo__todos__box
+  %li.right-content__todo__todos__box__list
+    .right-content__todo__todos__box__list__title
       = todo.content
-    = link_to todo_path(todo.id), class: "right-content__form__todo__todos__box__list__btn--remove js-remove-btn", method: "delete" do
+    = link_to todo_path(todo.id), class: "right-content__todo__todos__box__list__btn--remove js-remove-btn", method: "delete" do
       完了

@@ -1,5 +1,5 @@
-%li.right-content__form__post__posts__list
+%li.right-content__post__posts__list
   = post.content
-  = image_tag post.image.url, class: 'right-content__form__post__posts__list__image' if post.image.present?
-  .right-content__form__post__posts__list__date
+  = image_tag post.image.url, class: 'right-content__post__posts__list__image' if post.image.present?
+  .right-content__post__posts__list__date
     = post.created_at.strftime("%Y年%m月%d日")
