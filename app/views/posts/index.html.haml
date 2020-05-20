@@ -17,21 +17,28 @@
             = link_to edit_user_path(current_user), class: "left-content__user__lists__list__edit-btn" do
               = icon('fas', 'cog', class: 'icon')
               = "設定"
+          %li.left-content__user__lists__list
+            = link_to destroy_user_session_path, method: :delete, class: 'left-content__user__lists__list__out-btn' do
+              = icon('fas', 'sign-out-alt', class: 'icon')
+              = "ログアウト"
         = image_tag current_user.image, class: 'left-content__user__image'
         .left-content__user__content
+          .left-content__user__title
+            ＜自己紹介＞
           = current_user.content
       .left-content__time
         .left-content__time__chart
+          ＜日々のルーティン＞
           - if Routine.exists?
             = link_to "全て削除", destroy_all_routines_path, method: :delete, class: "left-content__time__chart__delete--btn"
           = pie_chart @routines, id: "left-content__time__chart__routines" ,height: "280px", width: "400px"
           = form_for @routine, html: {class: 'left-content__time__chart__form'} do |f|
-            = f.text_field :content, class: 'left-content__time__chart__form__text', placeholder: '勉強や趣味などの内容を入力'
+            = f.text_field :content, class: 'left-content__time__chart__form__text', placeholder: '勉強内容など自由に入力'
             - cnt = [["時間",""]]
             - for num in 1..24
               - cnt << num
             = f.select :turn, cnt, class: 'left-content__time__chart__form__cnt'
-            = f.submit '追加', class: 'left-content__time__chart__form__submit'
+            = f.submit '登録', class: 'left-content__time__chart__form__submit'
         .left-content__time__calendar
           = month_calendar events: @posts do |date, posts|
             = date.day
@@ -43,7 +50,7 @@
       .right-content__todo
         = form_for @todo, html: {class: 'right-content__todo__form'} do |f|
           = f.text_field :content, class: 'right-content__todo__form__text', placeholder: 'やらなければならないことToDoを入力'
-          = f.submit '追加', class: 'right-content__todo__form__submit'
+          = f.submit '登録', class: 'right-content__todo__form__submit'
         .right-content__todo__title
           ＜ToDoリスト＞
         %ul.right-content__todo__todos
@@ -66,7 +73,7 @@
               = f.label :image, class: 'favorite__form__box__image-input' do
                 = icon('fas', 'image', class: 'favorite__form__box__image-input--iconon')
                 = f.file_field :image, class: 'favorite__form__box__image-input--hidden'
-            = f.text_field :url, class: 'favorite__form__box__text', placeholder: 'ここに購入リンクを入力'
+            = f.text_field :url, class: 'favorite__form__box__text', placeholder: '購入リンクを入力'
             = f.submit '登録', class: 'favorite__form__submit'
       .right-content__post
         .right-content__post__title
@@ -75,12 +82,12 @@
           = render @posts
         = form_for @post, html: {class: 'right-content__post__form'} do |f|
           .right-content__post__form__box
-            = f.date_select :start_time, class: 'right-content__post__form__box__date'
+            != sprintf(f.date_select(:start_time, with_css_classes:'select-default_birthday', use_month_numbers: true,start_year: (Time.now.year), end_year: Time.now.year + 10, default: Date.new, date_separator:'%s'),'年','月')+'日'
             = f.text_field :content, class: 'right-content__post__form__box__text', placeholder: '今日の積み上げを入力'
             = f.label :image, class: 'right-content__post__form__box__image-input' do
               = icon('fas', 'image', class: 'right-content__post__form__box__image-input--iconon')
               = f.file_field :image, class: 'right-content__post__form__box__image-input--hidden'
-          = f.submit '送信', class: 'right-content__post__form__submit'
+          = f.submit '登録', class: 'right-content__post__form__submit'
   .footer
     .footer__small
       Copyright(C) Self Realization ALL RIGHTS RESERVED.

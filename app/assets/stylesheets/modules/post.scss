@@ -11,7 +11,8 @@
         height: 120px;
         &__lists{
           &__list {
-            width: 100px;
+            width: 110px;
+            padding-left: 5px;
             &__twitter-btn {
               color: blue;
             }
@@ -21,13 +22,21 @@
             &__edit-btn {
               color: black;
             }
+            &__out-btn {
+              color: maroon;
+            }
           }
         }
         &__image {
           height: 100%;
         }
+        &__title {
+          color: black;
+        }
         &__content {
-          padding: 5px;
+          font-size: 15px;
+          color: white;
+          padding: 0 5px;
           overflow: auto;
         }
       }
@@ -37,6 +46,7 @@
         // color: white;
         font-size: 10px;
         &__chart {
+          font-size: 15px;
           &__delete--btn {
             font-size: 15px;
             text-decoration: none;
@@ -92,7 +102,8 @@
       width: calc(100% - 400px);
       &__todo {
         height: 200px;
-        background-color: gray;
+        padding-top: 5px;
+        background-color: silver;
         &__title {
           height: 20px;
         }
@@ -202,7 +213,7 @@
                   width: calc(100% - 70px);
                   padding-left: 30px;;
                 }
-                width: 150px;
+                width: 135px;
               }
               &__image-input {
                 font-size: 1.3rem;
@@ -230,7 +241,7 @@
         }
       }
       &__post {
-        height: calc(100% - 470px);
+        height: calc(100% - 460px);
         &__title
         {
           height: 20px;
@@ -259,24 +270,19 @@
             width: 100%;
             #post_start_time_1i {
               height: 30px;
-              width: 69px;
+              // width: 69px;
             }
             #post_start_time_2i {
               height: 30px;
-              width: 114px;
+              // width: 114px;
             }
             #post_start_time_3i {
               height: 30px;
-              width: 48px;
+              // width: 48px;
             }
             position: relative;
             &__text {
-              // height: 50px;
-              width: calc(100% - 250px);
-              
-              // padding: 0 40px 0 10px;
-              // color: #434a54;
-              // border-style: none;
+              width: calc(100% - 235px);
             }
             &__image-input {
               font-size: 1.3rem;
