@@ -3,3 +3,5 @@
   = image_tag post.image.url, class: 'right-content__post__posts__list__image' if post.image.present?
   .right-content__post__posts__list__date
     = post.created_at.strftime("%Y年%m月%d日")
+    = link_to post_path(post.id), class: "right-content__todo__todos__box__list__btn--remove js-remove-btn", method: "delete" do
+      削除

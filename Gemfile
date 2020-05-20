@@ -76,6 +76,8 @@ gem 'fog-aws'
 
 gem 'dotenv-rails'
 
+gem 'rails-i18n', '~> 5.1' 
+
 group :production do
   # use PostgreSQL on heroku
   gem 'pg'
