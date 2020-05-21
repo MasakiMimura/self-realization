@@ -19,8 +19,11 @@
 - 日々のルーティンを登録する機能
 ![result](https://user-images.githubusercontent.com/62504066/82596472-50478500-9be2-11ea-8312-8301452b6ff6.gif)
 - ToDoリストを登録・完了（削除）する機能
+![result](https://user-images.githubusercontent.com/62504066/82596548-6b19f980-9be2-11ea-8a2b-5df34fe05702.gif)
 - お気に入りの書籍を登録する機能
+![result](https://user-images.githubusercontent.com/62504066/82596582-7a00ac00-9be2-11ea-8038-35784645a41d.gif)
 - 毎日の積み上げを登録する機能
+![result](https://user-images.githubusercontent.com/62504066/82596614-8ab12200-9be2-11ea-8786-fab44b4fc615.gif)
 
 # アプリ未完成
 - 画面遷移をしないように機能を追加・バージョンアップ中
