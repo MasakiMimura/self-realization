@@ -35,22 +35,17 @@
 ## usersテーブル deviseを使用
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false,unique: true|
-|image|string||
-
-## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
 |name|string|null: false|
 |image|text||
 |email|string|null: false|
+|twitter|string||
+|content|text||
 |password|string|null: false|
 ### Association
 - has_many :routines
 - has_many :times
 - has_many :favorites
 - has_many :posts
-
 
 ## routinesテーブル
 |Column|Type|Options|
@@ -60,7 +55,6 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-
 
 ## timesテーブル
 |Column|Type|Options|
@@ -73,7 +67,6 @@
 ### Association
 - belongs_to :user
 
-
 ## favoritessテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -84,7 +77,6 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-
 
 ## todosテーブル
 |Column|Type|Options|
