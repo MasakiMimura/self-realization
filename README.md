@@ -16,6 +16,7 @@
 
 # アプリの機能
 - ユーザーの新規登録、ログイン,編集機能 
+- SPA(Single Page Application)
 - 日々のルーティンを登録する機能
 ![result](https://user-images.githubusercontent.com/62504066/82596472-50478500-9be2-11ea-8312-8301452b6ff6.gif)
 - ToDoリストを登録・完了（削除）する機能
